@@ -11,14 +11,16 @@ export const basketSlice = createSlice({
       state.items = [...state.items, action.payload];
     },
     removeFromBasket: (state, action) => {
-      const index = state.items.findIndex((item) => item.id === action.payload.id);
+      const index = state.items.findIndex(
+        (item) => item.id === action.payload.id
+      );
       let newBasket = [...state.items];
       if (index >= 0) {
         newBasket.splice(index, 1);
       } else {
         console.warn("Can't remove product");
       }
-      state.items = newBasket
+      state.items = newBasket;
     },
   },
 });
@@ -32,5 +34,8 @@ export const selectBasketItemById = (state, id) =>
 export const selectBasketItemswithId = createSelector(
   [selectBasketItems, (_, id) => id],
   (items, id) => items.filter((item) => item.id === id)
+);
+export const selectBasketTotal = createSelector([selectBasketItems], (items) =>
+  items.reduce((total, item) => total + item.price, 0)
 );
 export default basketSlice.reducer;

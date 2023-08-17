@@ -12,6 +12,7 @@ import {
   ChevronRightIcon,
 } from "react-native-heroicons/solid";
 import DishRow from "../components/DishRow";
+import BasketIcon from "../components/BasketIcon";
 
 const RestaurantScreen = () => {
   const navigation = useNavigation();
@@ -33,6 +34,8 @@ const RestaurantScreen = () => {
     navigation.setOptions({ headerShown: false });
   }, []);
   return (
+    <>
+    <BasketIcon/>
     <ScrollView>
       <View className="relative">
         <Image
@@ -72,7 +75,7 @@ const RestaurantScreen = () => {
           <ChevronRightIcon color="dodgerblue" />
         </TouchableOpacity>
       </View>
-      <View>
+      <View className="pb-28">
         <Text className="p-4 pt-6 font-bold text-xl mb-3">Menu</Text>
         {dishes.map((dish) => (
           <DishRow key={dish._id}
@@ -84,6 +87,7 @@ const RestaurantScreen = () => {
         ))}
       </View>
     </ScrollView>
+    </>
   );
 };
 
