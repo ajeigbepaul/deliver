@@ -101,7 +101,7 @@ const BasketScreen = () => {
             <Text className="text-gray-500">Order Total</Text>
             <Text className="font-extrabold">₦ {naira.format(total + 500)}</Text>
           </View>
-          <TouchableOpacity className="bg-orange-400 items-center py-3 rounded-lg">
+          <TouchableOpacity className="bg-orange-400 items-center py-3 rounded-lg" onPress={()=>navigation.navigate("Preparingorder")}>
             <Text className="text-white text-lg font-bold">Place Order</Text>
           </TouchableOpacity>
         </View>
