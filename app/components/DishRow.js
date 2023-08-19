@@ -19,7 +19,7 @@ const DishRow = ({ id, name, description, price, image }) => {
     if(!items?.length > 0) return;
     dispatch(removeFromBasket({id}))
   }
-  let naira = Intl.NumberFormat("en-NG");
+  let naira = Intl.NumberFormat("en-NGN");
   const [ispressed, setIspressed] = useState(false);
   return (
     <>
